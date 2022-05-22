@@ -1,0 +1,28 @@
+{
+  "client_id": "<%= oauth_iparams.client_id || 'c40fc3508af15972d14bac906be026cd227a76415fae96c63a11cf5ef65639e1' %>",
+  "client_secret": "<%= oauth_iparams.client_secret || 'f7eb56ad6d0b37f12afb3c006cce5d5a815b39bb00d02a351ec9f69d527cd020' %>",
+  "authorize_url": "https://<%= oauth_iparams.domain %>/oauth/authorize",
+  "token_url": "https://<%= oauth_iparams.domain %>/oauth/token",
+  "token_type": "account",
+  "options": {
+    "scope": "api sudo"
+  },
+  "oauth_iparams": {
+    "domain": {
+      "display_name": "Gitlab domain",
+      "description": "Please enter your Gitlab domain",
+      "type": "text",
+      "required": true
+    },
+    "client_id": {
+      "display_name": "Gitlab Client ID",
+      "description": "Please enter your Gitlab client ID (only for self managed Gitlab domain)",
+      "type": "text"
+    },
+    "client_secret": {
+      "display_name": "Gitlab Client Secret",
+      "description": "Please enter your Gitlab client secret (only for self managed Gitlab domain)",
+      "type": "text"
+    }
+  }
+}

@@ -1,0 +1,146 @@
+<html>
+
+<head>
+  <title>Installation Page</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://static.freshdev.io/fdk/2.0/assets/fresh_client.js"></script>
+  <link rel='stylesheet' type='text/css' href='https://static.freshdev.io/fdk/2.0/assets/freshservice.css'>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="./assets/iparams.css">
+  <script src="./assets/iparams.js"></script>
+</head>
+
+<script type="text/javascript">
+  function getConfigs(config) {
+    configs = config;
+    if (configs) {
+      installed = true;
+      $("#commentsync")
+        .prop("checked", configs.commentsync)
+        .trigger("change");
+      $("#statussync")
+        .prop("checked", configs.statussync)
+        .trigger("change");
+      $("#domain").val(configs.fddomain);
+      $("#apikey").val(configs.fdapikey);
+    }
+  }
+
+  function validate() {
+    let isValid = true;
+    if ($("#projects").val().length === 0) {
+      showNotification("e", "Please select the Gitlab project(s) to link");
+      return false;
+    }
+    if (verfiedlevel !== 2) {
+      showNotification("e", "Please check your credentials");
+      return false;
+    }
+    if (!validation) {
+      showNotification("e", "Error while adding/deleting the projects");
+      return false;
+    }
+    return isValid;
+  }
+
+  function postConfigs() {
+    var fdapikey = $("#apikey").val();
+    return {
+      __meta: {
+        secure: ["fdapikey"]
+      },
+      fdapikey,
+      projects: $("#projects").val(),
+      commentsync: $("#commentsync").is(":checked"),
+      statussync: $("#statussync").is(":checked"),
+      fddomain: $("#domain").val(),
+    }
+  }
+
+</script>
+
+<body>
+  <div class="row errmsg">
+    <div class="col-md-1">
+      <i class="fa fa-times-circle icircle"></i>
+      <i class="fa fa-check-circle icircle hide success"></i>
+    </div>
+    <div class="col-md-10" id="errorMessage" style="font-size: 14px;"></div>
+    <div class="col-md-1">
+      <i class="fa fa-times" id="closeError"></i>
+    </div>
+  </div>
+  <div id="loading" class="spinner-wrapper hide">
+    <svg class="spinner" viewBox="0 0 50 50">
+      <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="4"></circle>
+    </svg>
+  </div>
+  <div class="container-fluid hide" id="iparams-lvl1">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="pad20 padbottom10">
+          <span> Select GitLab Projects to link: </span>
+          <div class="pad10">
+            <select id="projects" multiple style="width: 100%"> </select>
+          </div>
+        </div>
+      </div>
+      <div class="row pad20">
+        <div class="col-sm-12" style="padding:10px; text-align: right;">
+          <button id="save" class="btn btn-primary">Register/Deregister Webhook</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row pad20">
+      <div class="col-sm-12">
+        <label class="form-switch">
+          <input type="checkbox" id="commentsync" />
+          <i></i>
+          Enable comment sync between Gitlab and Freshservice.
+        </label>
+      </div>
+    </div>
+    <div class="row pad20">
+      <div class="col-sm-12">
+        <label class="form-switch">
+          <input type="checkbox" id="statussync" />
+          <i></i>
+          Enable status sync between Gitlab and Freshservice.
+        </label>
+      </div>
+    </div>
+    <div class="row pad20">
+      <div class="col-sm-12">
+        <button id="gitlabproceed" class="btn btn-primary">Proceed</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="container-fluid hide" id="iparams-lvl2">
+    <div class="row pad20">
+      <div class="col-md-12">
+        Freshservice Domain:
+        <input type="text" placeholder="Eg: domainname.freshservice.com" class="fdinput" id="domain"
+          pattern="^[a-zA-Z0-9\-]+\.freshservice\.com$" required="" />
+      </div>
+    </div>
+    <div class="row pad20">
+      <div class="col-md-12">
+        Freshservice API Key:
+        <input type="text" class="fdinput" id="apikey" />
+      </div>
+    </div>
+    <div class="row pad20">
+      <div class="col-sm-12">
+        <button id="finalproceed" class="btn btn-primary">Verify</button>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>

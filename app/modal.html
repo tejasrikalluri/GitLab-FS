@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://static.freshdev.io/fdk/2.0/assets/freshdesk.css">
+    <link rel="stylesheet" type="text/css" href="modal.css">
+  </head>
+  <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://static.freshdev.io/fdk/2.0/assets/fresh_client.js"></script>
+    <script src="./lib/gitlab.js"></script>
+    <script src="gitlabmodal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+    <div class="loading">
+      <div class="saving-work-item text-center">
+        <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+          <path fill="#e24329" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
+            <animateTransform attributeType="xml"
+              attributeName="transform"
+              type="rotate"
+              from="0 25 25"
+              to="360 25 25"
+              dur="0.6s"
+              repeatCount="indefinite"/>
+          </path>
+        </svg>
+        <div class="text-center"> Linking work item </div>
+      </div>
+    </div>
+    <div class="error"></div>
+    <div class="content-wrapper">
+      <div class="project-wrapper">
+        <label class="fr-label">Choose project <span class="star">*</span></label>
+        <select id='project-list' class="select-container"></select>
+      </div>
+      <div class="new-issue-form">
+        <div class="issue-title-row">
+          <label class="fr-label">Title <span class="star">*</span></label>
+          <select id='issue-title' class="select-container">
+            <option></option>
+          </select>
+        </div>
+        <div class="issue-description-row">
+          <label class="fr-label">Description</label>
+          <textarea id='issue-description' placeholder='Describe the work item'></textarea>
+        </div>
+        <!-- <div class="issue-reporter-row">
+          <label class="fr-label">Reporter <span class="star">*</span></label>
+          <select id='issue-reporter' class="select-container">
+            <option></option>
+          </select>
+        </div>
+        <div class="issue-type-row"><label class="fr-label">Type</label><select id='issue-type' class="select-container"></select></div> -->
+        <div class="footer">
+          <div id='close-modal' class="button btn btn-secondary"> Cancel </div>
+          <div id='create-issue' class="button btn btn-primary disabled"> Submit </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

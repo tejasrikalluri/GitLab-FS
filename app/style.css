@@ -1,0 +1,140 @@
+
+
+.logo {
+  background: url('freshservice_logo.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 25px;
+  margin-top: 25px;
+}
+
+.issue-link-btn.btn-primary {
+  background-color: #24364a;
+  border-color: #24364a;
+}
+
+.issue-link-btn.btn-primary:focus{
+  background-color: #24364a !important;
+  border-color: #24364a; 
+}
+
+.issue-link-btn.btn-primary:active {
+  background-color: #24364a;
+  border-color: #24364a; 
+}
+
+.issue-link-btn.btn-primary:active:hover {
+  background-color: #141c30;
+  border-color: #141c30;
+}
+
+.btn-primary.issue-link-btn:hover {
+  background-color: #141c30;
+  border-color: #141c30;
+}
+
+.fr-logo {
+  overflow: hidden;
+  height: 25px;
+  margin-top: 25px;
+}
+
+.btn.issue-link-btn {
+  color: #414655;
+  border: 1px solid #dadfe3;
+  background-color: #ffffff;
+}
+
+.add-icon {
+  width: 14px;
+  margin-right: 4px;
+}
+
+.content-center {
+  text-align: center;
+  margin: 20% 10%;
+}
+
+p {
+	text-align: center;
+}
+
+#freshrelease-issue-container {
+  padding:10px !important;
+  font-size: 13px;
+}
+
+.unauthorized-error,
+.freshrelease-issue {
+  display: none;
+}
+
+.unauthorized-error {
+  color: #ff5959
+}
+
+.issue-link-container {
+  /* display: none; */
+  position: relative;
+  background-color: #F8F9FA;
+}
+
+.issue-key {
+  color: #6e6a7b;
+  font-weight: 500;
+}
+
+.unlink-issue {
+  color: #EF3E4A;
+  cursor: pointer;
+}
+
+.unlink-issue-icon {
+  width: 9px;
+}
+
+.title-container {
+  margin-top: 8px;
+  margin-bottom: 10px; 
+}
+
+.issue-title {
+  font-weight: 500;
+}
+
+.read-more-btn {
+  text-align: left;
+  font-size: 11px;
+  color: #448ee1;
+  margin-top: 1px;
+  cursor: pointer;
+}
+
+.issue-property {
+  margin-bottom: 12px;
+  font-size: 12px;
+}
+
+.issue-property-name {
+  padding: 0;
+  display: block;
+  position: relative;
+  color: #6e6a7b;
+  margin-bottom: 4px;
+}
+
+.issue-property-value {
+  width: 185px;
+  font-weight: 500;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.assignee-email {
+  color: #2c5cc5;
+}
+
